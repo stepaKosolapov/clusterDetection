@@ -42,6 +42,11 @@ function _drawGrid(_rows, _cols, _cellWidth=10, _cellHeight=10, _gap=1) {
                     cell.setAttributeNS(null, 'fill', brushColor);
                 }
             };
+            cell.onclick = ()=>{
+                if (!isBrushDown){
+                    cell.setAttributeNS(null, 'fill', brushColor);
+                }
+            }; 
         }
     }
 }
@@ -58,6 +63,18 @@ function reload() {
     let _cellHeight = _cellWidth;
     let _gap = 1;
     _drawGrid(_rows, _cols, _cellWidth, _cellHeight, _gap);
+}
+
+function createVector() {
+    let cells = document.querySelectorAll('.drawing_area > rect');
+    // let vector = [];
+    let vector = '[';
+    for (let cell of cells){
+        // vector.push(cell.getAttribute('fill') == fullColor ? 1 : 0);
+        vector +=  ((cell.getAttribute('fill') == fullColor) ? 1 : 0) + ',';
+    }
+    vector += ']';
+    console.log(vector);
 }
 
 document.querySelector('#cell_size_indicator').textContent = document.querySelector('#cell_size').value;

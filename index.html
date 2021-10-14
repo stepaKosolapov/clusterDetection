@@ -34,7 +34,7 @@
             background-color: rgba(0, 0, 0, 0.301);
             border: 2px solid black;
         }
-        .color_button {
+        .button {
             width: 120px;
             height: 50px;
             text-align: center;
@@ -48,7 +48,7 @@
             border: 1px solid black;
             border-radius: 5px;
         }
-        .color_button:hover{
+        .button:hover{
             background-color: rgb(235, 232, 232);
         }
         .selected {
@@ -65,26 +65,26 @@
         <svg class="drawing_area" xmlns="http://www.w3.org/2000/svg">
         </svg>
         <div class="button_bar">
-            <button id="erase_button" class="color_button" type="button"  onclick="{
+            <button id="erase_button" class="button" type="button"  onclick="{
                 changeBrushColor(emptyColor);
                 this.classList.add('selected');
                 document.querySelector('#print_button').classList.remove('selected');
                 }">erase</button>
             
-            <button id="print_button" class="color_button selected" type="button" onclick="{
+            <button id="print_button" class="button selected" type="button" onclick="{
                 changeBrushColor(fullColor);
                 this.classList.add('selected');
                 document.querySelector('#erase_button').classList.remove('selected');
                 }">print</button>
-            
-            <button class="color_button" type="button" onclick="reload()">reload</button>
+            <button class="button" type="button" onclick="createVector()">vector</button>
+            <button class="button" type="button" onclick="reload()">reload</button>
             <div class="resizing_form">
                 <label for="cell_size">Cell size: <span id="cell_size_indicator">0</span> px</label>
                 <input id="cell_size" type="range" min="5" max="20" step="5" onmousemove="let f=(e)=>{
                     let val = e.target.value;
                     document.querySelector('#cell_size_indicator').textContent = val;};
                     f(event);">
-                <label for="grid_size">Cell size: <span id="grid_size_indicator">0</span> cells</label>
+                <label for="grid_size">Grid size: <span id="grid_size_indicator">0</span> cells</label>
                 <input id="grid_size" type="range" min="10" max="50" step="5" onmousemove="let f=(e)=>{
                     let val = e.target.value;
                     document.querySelector('#grid_size_indicator').textContent = val;};
