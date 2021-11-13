@@ -13,6 +13,8 @@ window.onmouseup = ()=>{
     isBrushDown = false;
 }
 
+window.cols = 0;
+
 function _drawGrid(_rows, _cols, _cellWidth=10, _cellHeight=10, _gap=1) {
     let gap = _gap;
     let rows = _rows;
@@ -63,17 +65,26 @@ function reload() {
     let _cellHeight = _cellWidth;
     let _gap = 1;
     _drawGrid(_rows, _cols, _cellWidth, _cellHeight, _gap);
+    window.cols = _cols;
 }
 
 function createVector() {
     let cells = document.querySelectorAll('.drawing_area > rect');
-    // let vector = [];
-    let vector = '[';
+    let vector = '';
     for (let cell of cells){
-        // vector.push(cell.getAttribute('fill') == fullColor ? 1 : 0);
-        vector +=  ((cell.getAttribute('fill') == fullColor) ? 1 : 0) + ',';
+        vector += ((cell.getAttribute('fill') === fullColor) ? 1 : 0) + ',';
     }
-    vector += ']';
+    console.log(vector);
+}
+
+function createMatrix() {
+    let cells = document.querySelectorAll('.drawing_area > rect');
+    let vector = '';
+    let c = 0;
+    for (let cell of cells){
+        c++;
+        vector += ((cell.getAttribute('fill') === fullColor) ? 1 : 0)+ (c % window.cols ? ' ' :'\n');
+    }
     console.log(vector);
 }
 

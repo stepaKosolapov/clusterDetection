@@ -34,6 +34,15 @@
             background-color: rgba(0, 0, 0, 0.301);
             border: 2px solid black;
         }
+        .creating_buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .creating_buttons button {
+            height: 45%;
+            margin-bottom: 5px;
+        }
         .button {
             width: 120px;
             height: 50px;
@@ -76,7 +85,10 @@
                 this.classList.add('selected');
                 document.querySelector('#erase_button').classList.remove('selected');
                 }">print</button>
-            <button class="button" type="button" onclick="createVector()">vector</button>
+            <div class="creating_buttons">
+                <button class="button" type="button" onclick="createVector()">vector</button>
+                <button class="button" type="button" onclick="createMatrix()">matrix</button>
+            </div>
             <button class="button" type="button" onclick="reload()">reload</button>
             <div class="resizing_form">
                 <label for="cell_size">Cell size: <span id="cell_size_indicator">0</span> px</label>
