@@ -1,4 +1,4 @@
-# This is cluster detector!
+# This is the cluster detector!
 
 ### You can test it on: [https://stepakosolapov.pythonanywhere.com/](https://stepakosolapov.pythonanywhere.com/)
 
